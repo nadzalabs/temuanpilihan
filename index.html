@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Temuan Pilihan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
 *{
@@ -14,126 +18,324 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#f8f5f0;
+background:
+linear-gradient(
+180deg,
+#fff7f2 0%,
+#f8f5f0 100%
+);
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
 padding:20px;
+overflow-x:hidden;
+position:relative;
+}
+
+/* efek blur background */
+body::before{
+content:"";
+position:absolute;
+width:280px;
+height:280px;
+background:#ff7a00;
+opacity:.08;
+filter:blur(90px);
+top:-80px;
+right:-80px;
+border-radius:50%;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+background:#ffb347;
+opacity:.06;
+filter:blur(80px);
+bottom:-80px;
+left:-60px;
+border-radius:50%;
 }
 
 .container{
 width:100%;
-max-width:450px;
+max-width:460px;
 text-align:center;
+position:relative;
+z-index:2;
+}
+
+/* logo */
+.logo-wrapper{
+position:relative;
+display:flex;
+justify-content:center;
+margin-bottom:18px;
 }
 
 .logo{
 width:120px;
 height:120px;
-border-radius:50%;
-margin:0 auto 20px;
-background:#ffffff;
+border-radius:35px;
+background:
+linear-gradient(
+135deg,
+#ff8a00,
+#ff5e00
+);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:50px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+font-size:52px;
+box-shadow:
+0 10px 30px rgba(255,102,0,0.25);
+border:4px solid rgba(255,255,255,0.6);
 }
 
+/* heading */
 h1{
-font-size:32px;
-color:#222;
+font-size:38px;
+font-weight:800;
+color:#1e1e1e;
 margin-bottom:10px;
+letter-spacing:-1px;
 }
 
 .subtitle{
 color:#666;
-margin-bottom:30px;
+font-size:15px;
+line-height:1.6;
+margin-bottom:35px;
+padding:0 10px;
 }
 
+/* card button */
 .button{
-display:block;
+display:flex;
+align-items:center;
+justify-content:space-between;
 text-decoration:none;
-background:#ffffff;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
 color:#222;
-padding:18px;
-margin-bottom:14px;
-border-radius:16px;
-font-weight:600;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-transition:.2s;
+padding:18px 22px;
+margin-bottom:16px;
+border-radius:22px;
+font-weight:700;
+font-size:17px;
+box-shadow:
+0 8px 20px rgba(0,0,0,0.06);
+transition:.25s ease;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.7);
 }
 
 .button:hover{
-transform:translateY(-2px);
+transform:translateY(-4px);
+box-shadow:
+0 12px 25px rgba(0,0,0,0.12);
 }
 
-.viral{
-border-left:5px solid #ff6b00;
+.button::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.45),
+transparent
+);
+transition:.7s;
 }
 
-.gadget{
-border-left:5px solid #0077ff;
+.button:hover::before{
+left:120%;
 }
 
-.home{
-border-left:5px solid #00a86b;
+.left{
+display:flex;
+align-items:center;
+gap:14px;
 }
 
-.dapur{
-border-left:5px solid #ffb000;
+.icon{
+width:46px;
+height:46px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+color:white;
+flex-shrink:0;
 }
 
-.muslim{
-border-left:5px solid #2f855a;
+.arrow{
+font-size:18px;
+opacity:.5;
 }
 
+/* warna kategori */
+.viral .icon{
+background:linear-gradient(135deg,#ff8a00,#ff5100);
+}
+
+.gadget .icon{
+background:linear-gradient(135deg,#3b82f6,#2563eb);
+}
+
+.home .icon{
+background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.dapur .icon{
+background:linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+.muslim .icon{
+background:linear-gradient(135deg,#22c55e,#15803d);
+}
+
+/* footer */
 .footer{
-margin-top:25px;
-font-size:13px;
-color:#888;
+margin-top:18px;
+font-size:12px;
+color:#999;
+padding-bottom:5px;
+}
+
+/* badge */
+.badge{
+display:inline-block;
+background:rgba(255,102,0,0.12);
+color:#ff6600;
+padding:7px 14px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
+margin-bottom:18px;
+border:1px solid rgba(255,102,0,0.15);
+}
+
+/* responsive */
+@media(max-width:480px){
+
+h1{
+font-size:32px;
+}
+
+.button{
+padding:16px 18px;
+font-size:16px;
+border-radius:18px;
+}
+
+.logo{
+width:105px;
+height:105px;
+font-size:46px;
+}
+
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
+<div class="logo-wrapper">
 <div class="logo">
 🔎
+</div>
+</div>
+
+<div class="badge">
+✨ Rekomendasi Produk Terbaik
 </div>
 
 <h1>Temuan Pilihan</h1>
 
 <p class="subtitle">
-Temukan produk terbaik pilihan kami
+Temukan produk viral, gadget modern, hingga kebutuhan rumah tangga pilihan dengan tampilan premium dan harga terbaik.
 </p>
 
 <a class="button viral" href="produk-viral.html">
-🔥 Produk Viral
+
+<div class="left">
+<div class="icon">🔥</div>
+<span>Produk Viral</span>
+</div>
+
+<div class="arrow">
+›
+</div>
+
 </a>
 
 <a class="button gadget" href="gadget-pilihan.html">
-📱 Gadget Pilihan
+
+<div class="left">
+<div class="icon">📱</div>
+<span>Gadget Pilihan</span>
+</div>
+
+<div class="arrow">
+›
+</div>
+
 </a>
 
 <a class="button home" href="#">
-🏠 Home Living
+
+<div class="left">
+<div class="icon">🏠</div>
+<span>Home Living</span>
+</div>
+
+<div class="arrow">
+›
+</div>
+
 </a>
 
 <a class="button dapur" href="#">
-🍳 Peralatan Dapur
+
+<div class="left">
+<div class="icon">🍳</div>
+<span>Peralatan Dapur</span>
+</div>
+
+<div class="arrow">
+›
+</div>
+
 </a>
 
 <a class="button muslim" href="#">
-🕌 Produk Muslim
+
+<div class="left">
+<div class="icon">🕌</div>
+<span>Produk Muslim</span>
+</div>
+
+<div class="arrow">
+›
+</div>
+
 </a>
 
 <div class="footer">
-Temuan Pilihan © 2026
+© 2026 Temuan Pilihan
 </div>
 
 </div>
