@@ -404,47 +404,46 @@ Temuan Pilihan © 2026
 </div>
 
 <script>
+function goBack() {
 
-function goBack(){
-
-if(document.referrer !== ""){
-
-history.back();
-
-}else{
-
-window.location.href = "index.html";
+    if (window.history.length > 1) {
+        history.back();
+    } else {
+        window.location.href = "./index.html";
+    }
 
 }
 
-}
-
-const searchInput =
-document.getElementById("searchInput");
-
-searchInput.addEventListener("keyup", function(){
-
-let keyword =
-this.value.toLowerCase();
-
-let products =
-document.querySelectorAll(".product-item");
-
-products.forEach(function(product){
-
-let text =
-product.innerText.toLowerCase();
-
-if(text.includes(keyword)){
-product.style.display = "flex";
-}else{
-product.style.display = "none";
-}
-
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
 });
 
-});
+const searchInput = document.getElementById("searchInput");
 
+if (searchInput) {
+    searchInput.addEventListener("keyup", function() {
+
+        let keyword = this.value.toLowerCase();
+
+        let products =
+            document.querySelectorAll(".product-item");
+
+        products.forEach(function(product) {
+
+            let text =
+                product.innerText.toLowerCase();
+
+            product.style.display =
+                text.includes(keyword)
+                    ? "flex"
+                    : "none";
+
+        });
+
+    });
+}
 </script>
 
 </body>
