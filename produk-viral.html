@@ -156,6 +156,10 @@ font-weight:700;
 
 color:#ff6b00;
 
+border:none;
+
+cursor:pointer;
+
 box-shadow:
 0 4px 10px rgba(0,0,0,.05);
 }
@@ -334,9 +338,9 @@ color:#777;
 
 <div class="container">
 
-<a href="index.html" class="back">
+<button onclick="goBack()" class="back">
 ← Kembali
-</a>
+</button>
 
 <div class="hero">
 
@@ -400,6 +404,12 @@ Temuan Pilihan © 2026
 </div>
 
 <script>
+
+function goBack(){
+
+history.back();
+
+}
 
 const searchInput =
 document.getElementById("searchInput");
