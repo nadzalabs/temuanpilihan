@@ -17,15 +17,38 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:linear-gradient(
+background:
+radial-gradient(circle at top right,
+rgba(255,107,0,.25),
+transparent 250px),
+
+radial-gradient(circle at bottom left,
+rgba(255,140,66,.18),
+transparent 250px),
+
+linear-gradient(
 180deg,
 #ff6b00 0%,
-#ff8c42 20%,
-#f8f5f0 55%,
+#ff8c42 18%,
+#f8f5f0 45%,
 #f8f5f0 100%
 );
+
 min-height:100vh;
 padding:20px;
+
+animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .container{
@@ -39,25 +62,35 @@ margin-bottom:20px;
 color:white;
 text-decoration:none;
 font-weight:bold;
+font-size:15px;
 }
 
 .header{
-background:white;
-padding:25px;
+background:rgba(255,255,255,.92);
+
+backdrop-filter:blur(12px);
+
+padding:28px;
+
 border-radius:24px;
+
 text-align:center;
-margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+margin-bottom:22px;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.08);
 }
 
 .header h1{
-font-size:30px;
-margin-bottom:8px;
+font-size:32px;
 color:#222;
+margin-bottom:8px;
 }
 
 .header p{
 color:#666;
+line-height:1.5;
 }
 
 .product-card{
@@ -71,7 +104,7 @@ padding:18px 20px;
 
 margin-bottom:12px;
 
-border-radius:16px;
+border-radius:18px;
 
 text-decoration:none;
 
@@ -79,17 +112,28 @@ color:#222;
 
 font-weight:600;
 
-box-shadow:0 5px 15px rgba(0,0,0,0.06);
+box-shadow:
+0 8px 20px rgba(0,0,0,.06);
 
-transition:0.2s;
+transition:.25s;
 }
 
 .product-card:hover{
-transform:translateY(-2px);
+transform:
+translateY(-3px)
+scale(1.01);
+
+box-shadow:
+0 15px 30px rgba(0,0,0,.12);
+}
+
+.product-name{
+font-size:16px;
 }
 
 .arrow{
 font-size:22px;
+font-weight:bold;
 color:#ff6b00;
 }
 
@@ -114,31 +158,34 @@ color:#777;
 
 <div class="header">
 <h1>🔥 Produk Viral</h1>
-<p>Klik nomor produk sesuai yang disebut di video</p>
+<p>
+Temukan produk viral pilihan terbaik.<br>
+Klik nomor produk sesuai yang disebut di video.
+</p>
 </div>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>No.1 - Lampu Tidur Estetik</span>
+<span class="product-name">No.1 - Lampu Tidur Estetik</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>No.2 - Tumbler Premium</span>
+<span class="product-name">No.2 - Tumbler Premium</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>No.3 - Rak Serbaguna Viral</span>
+<span class="product-name">No.3 - Rak Serbaguna Viral</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>No.4 - Pengharum Mobil</span>
+<span class="product-name">No.4 - Pengharum Mobil</span>
 <span class="arrow">›</span>
 </a>
 
 <a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>No.5 - Organizer Multifungsi</span>
+<span class="product-name">No.5 - Organizer Multifungsi</span>
 <span class="arrow">›</span>
 </a>
 
