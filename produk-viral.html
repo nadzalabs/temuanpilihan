@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>🔥 Produk Viral</title>
 
 <style>
@@ -13,164 +12,191 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#f8f5f0;
+background:#f7f5f1;
 min-height:100vh;
-padding:20px;
 overflow-x:hidden;
-animation:fadeIn 1s ease;
+padding:20px;
+animation:pageIn .9s ease;
 }
 
-/* ORNAMEN BACKGROUND */
+/* ANIMASI MASUK */
 
-.bg1{
-position:fixed;
-width:300px;
-height:300px;
-background:#ff6b00;
-border-radius:50%;
-top:-100px;
-right:-100px;
-filter:blur(90px);
-opacity:.25;
-z-index:-1;
-}
-
-.bg2{
-position:fixed;
-width:250px;
-height:250px;
-background:#ffb347;
-border-radius:50%;
-bottom:-80px;
-left:-80px;
-filter:blur(90px);
-opacity:.25;
-z-index:-1;
-}
-
-.bg3{
-position:fixed;
-width:180px;
-height:180px;
-background:#ff8c42;
-border-radius:50%;
-top:45%;
-right:-50px;
-filter:blur(80px);
-opacity:.15;
-z-index:-1;
-}
-
-/* ANIMASI */
-
-@keyframes fadeIn{
+@keyframes pageIn{
 from{
 opacity:0;
-transform:translateY(20px);
+transform:scale(.97);
 }
 to{
 opacity:1;
-transform:translateY(0);
+transform:scale(1);
 }
+}
+
+/* GLOW BACKGROUND */
+
+.glow1{
+position:fixed;
+width:350px;
+height:350px;
+background:#ff6b00;
+top:-120px;
+right:-120px;
+border-radius:50%;
+filter:blur(100px);
+opacity:.25;
+z-index:-1;
+}
+
+.glow2{
+position:fixed;
+width:300px;
+height:300px;
+background:#ffd166;
+bottom:-100px;
+left:-100px;
+border-radius:50%;
+filter:blur(100px);
+opacity:.25;
+z-index:-1;
+}
+
+/* POLA TITIK */
+
+.pattern{
+position:fixed;
+inset:0;
+z-index:-2;
+opacity:.04;
+
+background-image:
+radial-gradient(#000 1px, transparent 1px);
+
+background-size:20px 20px;
 }
 
 .container{
-max-width:500px;
+max-width:520px;
 margin:auto;
 }
 
-/* TOMBOL KEMBALI */
+/* KEMBALI */
 
-.back-btn{
+.back{
 display:inline-block;
 margin-bottom:20px;
 text-decoration:none;
-font-weight:bold;
+font-weight:700;
 color:#ff6b00;
 }
 
 /* HEADER */
 
-.header{
-background:white;
-padding:28px;
-border-radius:24px;
+.hero{
+
+background:rgba(255,255,255,.75);
+
+backdrop-filter:blur(18px);
+
+padding:30px;
+
+border-radius:28px;
+
+margin-bottom:24px;
+
 text-align:center;
-margin-bottom:20px;
 
 box-shadow:
-0 10px 30px rgba(0,0,0,.08);
+0 10px 35px rgba(0,0,0,.08);
 }
 
-.header h1{
-font-size:32px;
-margin-bottom:8px;
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
 color:#222;
 }
 
-.header p{
+.hero p{
 color:#666;
-line-height:1.5;
+line-height:1.7;
 }
 
-/* PRODUK */
+/* CARD PRODUK */
 
-.product-card{
+.product{
 
 display:flex;
-justify-content:space-between;
 align-items:center;
 
-background:white;
+gap:18px;
 
-padding:18px 20px;
+background:rgba(255,255,255,.85);
 
-margin-bottom:12px;
+backdrop-filter:blur(15px);
 
-border-radius:18px;
+padding:20px;
+
+margin-bottom:14px;
+
+border-radius:22px;
 
 text-decoration:none;
 
 color:#222;
 
-font-weight:600;
+transition:.25s;
 
 box-shadow:
-0 6px 18px rgba(0,0,0,.06);
-
-transition:.25s;
+0 6px 20px rgba(0,0,0,.06);
 }
 
-.product-card:hover{
+.product:hover{
 
 transform:
-translateY(-3px);
+translateY(-4px);
 
 box-shadow:
-0 12px 24px rgba(0,0,0,.10);
+0 12px 30px rgba(0,0,0,.12);
 }
 
-.product-number{
-color:#ff6b00;
+.no{
+
+min-width:48px;
+height:48px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:#ff6b00;
+
+color:white;
+
 font-weight:700;
+
+border-radius:14px;
+}
+
+.name{
+flex:1;
+font-size:18px;
+font-weight:600;
 }
 
 .arrow{
-font-size:20px;
 color:#ff6b00;
+font-size:22px;
+font-weight:bold;
 }
-
-/* FOOTER */
 
 .footer{
 text-align:center;
 margin-top:25px;
-font-size:13px;
 color:#777;
+font-size:13px;
 }
 
 </style>
@@ -179,62 +205,56 @@ color:#777;
 
 <body>
 
-<div class="bg1"></div>
-<div class="bg2"></div>
-<div class="bg3"></div>
+<div class="pattern"></div>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
 
 <div class="container">
 
-<a href="index.html" class="back-btn">
+<a href="index.html" class="back">
 ← Kembali
 </a>
 
-<div class="header">
+<div class="hero">
+
 <h1>🔥 Produk Viral</h1>
+
 <p>
-Temukan produk viral pilihan terbaik.<br>
-Klik nomor produk sesuai yang disebut di video.
+Klik nomor produk yang disebut di video,
+lalu langsung menuju Shopee.
 </p>
+
 </div>
 
-<a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>
-<span class="product-number">No.1</span>
-- Lampu Tidur Estetik
-</span>
-<span class="arrow">›</span>
+<a href="https://shopee.co.id/" target="_blank" class="product">
+<div class="no">01</div>
+<div class="name">Lampu Tidur Estetik</div>
+<div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>
-<span class="product-number">No.2</span>
-- Tumbler Premium
-</span>
-<span class="arrow">›</span>
+<a href="https://shopee.co.id/" target="_blank" class="product">
+<div class="no">02</div>
+<div class="name">Tumbler Premium</div>
+<div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>
-<span class="product-number">No.3</span>
-- Rak Serbaguna Viral
-</span>
-<span class="arrow">›</span>
+<a href="https://shopee.co.id/" target="_blank" class="product">
+<div class="no">03</div>
+<div class="name">Rak Serbaguna Viral</div>
+<div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>
-<span class="product-number">No.4</span>
-- Pengharum Mobil
-</span>
-<span class="arrow">›</span>
+<a href="https://shopee.co.id/" target="_blank" class="product">
+<div class="no">04</div>
+<div class="name">Pengharum Mobil</div>
+<div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product-card">
-<span>
-<span class="product-number">No.5</span>
-- Organizer Multifungsi
-</span>
-<span class="arrow">›</span>
+<a href="https://shopee.co.id/" target="_blank" class="product">
+<div class="no">05</div>
+<div class="name">Organizer Multifungsi</div>
+<div class="arrow">›</div>
 </a>
 
 <div class="footer">
@@ -245,4 +265,3 @@ Temuan Pilihan © 2026
 
 </body>
 </html>
-
