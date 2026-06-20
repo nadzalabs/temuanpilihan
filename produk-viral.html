@@ -404,36 +404,32 @@ Temuan Pilihan © 2026
 </div>
 
 <script>
+
 function goBack() {
 
-    if (window.history.length > 1) {
-        history.back();
-    } else {
-        window.location.href = "./index.html";
-    }
+    window.location.href = "index.html";
 
 }
 
-window.addEventListener("pageshow", function(event) {
-    if (event.persisted) {
-        window.location.reload();
-    }
+window.addEventListener("pageshow", function () {
+
+    document.body.style.opacity = "1";
+    document.body.style.transform = "translateY(0)";
+    document.body.style.transition = "";
+
 });
 
 const searchInput = document.getElementById("searchInput");
 
 if (searchInput) {
-    searchInput.addEventListener("keyup", function() {
+
+    searchInput.addEventListener("keyup", function(){
 
         let keyword = this.value.toLowerCase();
 
-        let products =
-            document.querySelectorAll(".product-item");
+        document.querySelectorAll(".product-item").forEach(product => {
 
-        products.forEach(function(product) {
-
-            let text =
-                product.innerText.toLowerCase();
+            let text = product.innerText.toLowerCase();
 
             product.style.display =
                 text.includes(keyword)
@@ -443,7 +439,9 @@ if (searchInput) {
         });
 
     });
+
 }
+
 </script>
 
 </body>
