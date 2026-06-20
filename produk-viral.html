@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔥 Produk Viral</title>
+
+<title>🔥 Produk Viral | Temuan Pilihan</title>
 
 <style>
 
@@ -35,7 +36,7 @@ transform:translateY(0);
 }
 }
 
-/* ===== BACKGROUND ORNAMEN ===== */
+/* BACKGROUND */
 
 .top-blob{
 position:fixed;
@@ -101,6 +102,7 @@ z-index:-2;
 
 .dots{
 position:fixed;
+
 width:150px;
 height:150px;
 
@@ -127,42 +129,61 @@ bottom:30px;
 right:30px;
 }
 
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 
 .container{
 max-width:520px;
 margin:auto;
 }
 
-/* ===== BACK ===== */
+/* BACK BUTTON */
 
 .back{
+
 display:inline-block;
+
 margin-bottom:16px;
+
+padding:10px 14px;
+
+background:white;
+
+border-radius:12px;
 
 text-decoration:none;
 
 font-weight:700;
 
 color:#ff6b00;
+
+box-shadow:
+0 4px 10px rgba(0,0,0,.05);
 }
 
-/* ===== HERO ===== */
+/* HERO */
 
 .hero{
 
-background:rgba(255,255,255,.88);
+background:rgba(255,255,255,.9);
 
-padding:18px;
+padding:20px;
 
 border-radius:20px;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:16px;
 
 box-shadow:
 0 10px 25px rgba(0,0,0,.08);
+}
+
+.brand{
+font-size:13px;
+font-weight:700;
+color:#ff6b00;
+margin-bottom:8px;
+letter-spacing:.5px;
 }
 
 .hero h1{
@@ -174,9 +195,50 @@ color:#222;
 .hero p{
 font-size:14px;
 color:#666;
+line-height:1.6;
 }
 
-/* ===== PRODUK ===== */
+.product-count{
+
+display:inline-block;
+
+margin-top:12px;
+
+padding:6px 12px;
+
+background:#fff3eb;
+
+color:#ff6b00;
+
+font-size:12px;
+font-weight:700;
+
+border-radius:999px;
+}
+
+/* SEARCH */
+
+.search-box{
+
+width:100%;
+
+padding:14px 16px;
+
+border:none;
+
+border-radius:14px;
+
+margin-bottom:16px;
+
+font-size:14px;
+
+outline:none;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,.06);
+}
+
+/* PRODUCT CARD */
 
 .product{
 
@@ -212,45 +274,46 @@ box-shadow:
 
 .no{
 
-width:38px;
-height:38px;
+width:40px;
+height:40px;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-background:#ff6b00;
+background:
+linear-gradient(
+135deg,
+#ff6b00,
+#ff9a1f
+);
 
 color:white;
 
 font-size:14px;
 font-weight:700;
 
-border-radius:10px;
+border-radius:12px;
 }
 
 .name{
 flex:1;
-
 font-size:14px;
-
 font-weight:600;
 }
 
 .arrow{
 font-size:20px;
 font-weight:bold;
-
 color:#ff6b00;
 }
 
+/* FOOTER */
+
 .footer{
 text-align:center;
-
 margin-top:20px;
-
 font-size:12px;
-
 color:#777;
 }
 
@@ -276,35 +339,55 @@ color:#777;
 </a>
 
 <div class="hero">
-<h1>🔥 Produk Viral</h1>
-<p>Temuan Viral Pilihan Terbaik</p>
+
+<div class="brand">
+🔍 Temuan Pilihan
 </div>
 
-<a href="https://shopee.co.id/" target="_blank" class="product">
+<h1>🔥 Produk Viral</h1>
+
+<p>
+Temukan produk viral pilihan<br>
+yang sedang ramai dicari
+</p>
+
+<div class="product-count">
+5 Produk Tersedia
+</div>
+
+</div>
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Cari nomor atau nama produk..."
+class="search-box">
+
+<a href="https://shopee.co.id/" target="_blank" class="product product-item">
 <div class="no">01</div>
 <div class="name">Lampu Tidur Estetik</div>
 <div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product">
+<a href="https://shopee.co.id/" target="_blank" class="product product-item">
 <div class="no">02</div>
 <div class="name">Tumbler Premium</div>
 <div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product">
+<a href="https://shopee.co.id/" target="_blank" class="product product-item">
 <div class="no">03</div>
 <div class="name">Rak Serbaguna Viral</div>
 <div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product">
+<a href="https://shopee.co.id/" target="_blank" class="product product-item">
 <div class="no">04</div>
 <div class="name">Pengharum Mobil</div>
 <div class="arrow">›</div>
 </a>
 
-<a href="https://shopee.co.id/" target="_blank" class="product">
+<a href="https://shopee.co.id/" target="_blank" class="product product-item">
 <div class="no">05</div>
 <div class="name">Organizer Multifungsi</div>
 <div class="arrow">›</div>
@@ -315,6 +398,36 @@ Temuan Pilihan © 2026
 </div>
 
 </div>
+
+<script>
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function(){
+
+let keyword =
+this.value.toLowerCase();
+
+let products =
+document.querySelectorAll(".product-item");
+
+products.forEach(function(product){
+
+let text =
+product.innerText.toLowerCase();
+
+if(text.includes(keyword)){
+product.style.display = "flex";
+}else{
+product.style.display = "none";
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
