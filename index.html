@@ -44,6 +44,8 @@ padding:20px;
 
 overflow-x:hidden;
 
+background-attachment:fixed;
+
 position:relative;
 
 animation:fadePage .8s ease;
@@ -68,10 +70,16 @@ transform:translateY(0);
 /* DECORATIVE BACKGROUND */
 
 .bg-decoration{
-position:absolute;
-inset:0;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
 overflow:hidden;
+
 z-index:0;
+
 pointer-events:none;
 }
 
