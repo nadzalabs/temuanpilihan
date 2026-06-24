@@ -30,8 +30,8 @@ body{
 background:
 linear-gradient(
 180deg,
-#fffaf5 0%,
-#f7f1eb 100%
+#fdfbf8 0%,
+#f4efe8 100%
 );
 
 display:flex;
@@ -208,7 +208,11 @@ border-radius:50%;
 
 overflow:hidden;
 
-background:white;
+background:
+rgba(255,255,255,0.45);
+
+backdrop-filter:
+blur(20px);
 
 display:flex;
 align-items:center;
@@ -265,9 +269,9 @@ font-weight:700;
 margin-bottom:20px;
 
 background:
-rgba(255,102,0,0.10);
+rgba(255,255,255,0.35);
 
-color:#ff6600;
+color:#555;
 
 border:
 1px solid rgba(255,102,0,0.12);
@@ -328,15 +332,15 @@ margin-bottom:12px;
 border-radius:26px;
 
 background:
-rgba(255,255,255,0.72);
+rgba(255,255,255,0.35);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 
 border:
-1px solid rgba(255,255,255,0.8);
+1px solid rgba(255,255,255,0.7);
 
 box-shadow:
-0 6px 18px rgba(0,0,0,0.05);
+0 8px 25px rgba(0,0,0,0.04);
 
 transition:.35s ease;
 
