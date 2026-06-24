@@ -389,6 +389,7 @@ Cari nomor atau nama produk yang disebut di video.
 
 <input
 type="text"
+id="searchInput"
 class="search-box"
 placeholder="Cari nomor produk...">
 
@@ -445,6 +446,32 @@ setTimeout(()=>{
 window.location.href=href;
 },120);
 
+}
+
+});
+
+});
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function(){
+
+let keyword =
+this.value.toLowerCase();
+
+let buttons =
+document.querySelectorAll(".button");
+
+buttons.forEach(function(button){
+
+let text =
+button.innerText.toLowerCase();
+
+if(text.includes(keyword)){
+button.style.display = "flex";
+}else{
+button.style.display = "none";
 }
 
 });
