@@ -27,11 +27,13 @@ font-family:'Poppins', sans-serif;
 
 body{
 
-min-height:100vh;
+height:100vh;
 
 padding:20px;
 
 overflow-x:hidden;
+
+overflow-y:auto;
 
 position:relative;
 
@@ -749,7 +751,7 @@ document.querySelectorAll("a").forEach(link => {
 
             setTimeout(() => {
                 window.location.href = href;
-            }, 350);
+            }, 120);
 
         }
 
