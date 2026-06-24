@@ -27,12 +27,7 @@ font-family:'Poppins', sans-serif;
 
 body{
 
-background:
-linear-gradient(
-180deg,
-#fdfbf8 0%,
-#f4efe8 100%
-);
+background:transparent;
 
 display:flex;
 justify-content:center;
@@ -69,6 +64,26 @@ transform:translateY(0);
 
 /* DECORATIVE BACKGROUND */
 
+.fixed-bg{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+180deg,
+#fdfbf8 0%,
+#f4efe8 100%
+);
+
+z-index:-20;
+}
+    
 .bg-decoration{
 position:fixed;
 top:0;
@@ -78,7 +93,7 @@ height:100%;
 
 overflow:hidden;
 
-z-index:0;
+z-index:-10;
 
 pointer-events:none;
 }
@@ -563,6 +578,8 @@ font-size:22px;
 
 <!-- DECORATIVE BACKGROUND -->
 
+<div class="fixed-bg"></div>
+    
 <div class="bg-decoration">
 
 <div class="blob blob-top"></div>
