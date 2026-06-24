@@ -372,10 +372,16 @@ class="search-box">
 
 <!-- PRODUK -->
 
-<a href="#" target="_blank" class="product product-item">
+<a
+id="produk-01"
+href="https://s.shopee.co.id/6ffAq39P5k"
+target="_blank"
+class="product product-item">
+  
 <div class="no">01</div>
 <div class="name">Lampu Tidur Estetik</div>
 <div class="arrow">›</div>
+  
 </a>
 
 <a href="#" target="_blank" class="product product-item">
@@ -437,6 +443,34 @@ product.style.display = "none";
 });
 
 });
+
+const params =
+new URLSearchParams(window.location.search);
+
+const target =
+params.get("produk");
+
+if(target){
+
+const element =
+document.getElementById("produk-" + target);
+
+if(element){
+
+element.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+element.style.border =
+"3px solid #ff6b00";
+
+element.style.transform =
+"scale(1.02)";
+
+}
+
+}
 
 </script>
 
