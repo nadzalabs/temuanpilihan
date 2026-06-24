@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Temuan Pilihan</title>
 
-<!-- GOOGLE FONT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -14,59 +14,27 @@
 
 <style>
 
-/* RESET */
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins', sans-serif;
+font-family:'Poppins',sans-serif;
 }
-
-/* BODY */
 
 body{
-
-height:100vh;
-
+min-height:100vh;
 padding:20px;
-
 overflow-x:hidden;
-
-overflow-y:auto;
-
 position:relative;
-
-animation:fadePage .8s ease;
+animation:fadePage .5s ease;
 }
 
-/* PAGE FADE */
-
-@keyframes fadePage{
-
-from{
-opacity:0;
-transform:translateY(10px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* DECORATIVE BACKGROUND */
+/* BACKGROUND FIXED */
 
 .fixed-bg{
-
 position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
+inset:0;
+z-index:-20;
 
 background:
 linear-gradient(
@@ -74,25 +42,17 @@ linear-gradient(
 #fdfbf8 0%,
 #f4efe8 100%
 );
-
-z-index:-20;
 }
-    
+
 .bg-decoration{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-overflow:hidden;
-
+inset:0;
 z-index:-10;
-
 pointer-events:none;
+overflow:hidden;
 }
 
-/* ORANGE BLOBS */
+/* BLOBS */
 
 .blob{
 position:absolute;
@@ -105,32 +65,20 @@ linear-gradient(
 );
 }
 
-/* TOP RIGHT */
-
 .blob-top{
-
-width:280px;
-height:160px;
-
-top:-20px;
-right:-70px;
-
-border-bottom-left-radius:100px;
-border-bottom-right-radius:30px;
-}
-
-/* BOTTOM LEFT */
-
-.blob-bottom{
-
 width:320px;
 height:180px;
+top:-20px;
+right:-70px;
+border-bottom-left-radius:120px;
+}
 
-bottom:-50px;
-left:-60px;
-
-border-top-right-radius:140px;
-border-top-left-radius:40px;
+.blob-bottom{
+width:360px;
+height:220px;
+bottom:-80px;
+left:-80px;
+border-top-right-radius:160px;
 }
 
 /* CIRCLES */
@@ -138,35 +86,26 @@ border-top-left-radius:40px;
 .circle{
 position:absolute;
 border-radius:50%;
-border:4px solid rgba(255,140,0,0.20);
+border:4px solid rgba(255,140,0,.15);
 }
-
-/* BIG CIRCLE */
 
 .circle-1{
-
-width:260px;
-height:260px;
-
+width:280px;
+height:280px;
 top:-120px;
-left:-100px;
+left:-120px;
 }
 
-/* SMALL CIRCLE */
-
 .circle-2{
-
-width:55px;
-height:55px;
-
-top:160px;
-right:260px;
+width:60px;
+height:60px;
+top:180px;
+right:250px;
 }
 
 /* DOTS */
 
 .dots{
-
 position:absolute;
 
 width:140px;
@@ -178,12 +117,9 @@ radial-gradient(
 transparent 2px
 );
 
-background-size:38px 38px;
-
+background-size:35px 35px;
 opacity:.45;
 }
-
-/* DOT POSITION */
 
 .dots-1{
 top:40px;
@@ -195,21 +131,15 @@ bottom:40px;
 right:20px;
 }
 
-/* CONTAINER */
+/* PAGE */
 
 .container{
-
 width:100%;
-max-width:470px;
-
+max-width:480px;
 margin:auto;
-
 text-align:center;
-
 position:relative;
-z-index:2;
-
-padding:10px;
+z-index:5;
 }
 
 /* LOGO */
@@ -219,57 +149,35 @@ padding:10px;
 width:140px;
 height:140px;
 
-margin:0 auto 24px;
-
-margin-top:30px;
+margin:30px auto 20px;
 
 border-radius:50%;
-
 overflow:hidden;
 
 background:
-rgba(255,255,255,0.45);
+rgba(255,255,255,.45);
 
-backdrop-filter:
-blur(20px);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-box-shadow:
-0 15px 40px rgba(255,120,0,0.22);
+backdrop-filter:blur(20px);
 
 border:
-4px solid rgba(255,255,255,0.7);
+4px solid rgba(255,255,255,.7);
+
+box-shadow:
+0 15px 40px rgba(255,120,0,.2);
 
 animation:floating 3s ease-in-out infinite;
 }
 
 .logo img{
-
 width:100%;
 height:100%;
-
 object-fit:cover;
 }
 
-/* FLOATING */
-
 @keyframes floating{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-7px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
 }
 
 /* BADGE */
@@ -278,63 +186,82 @@ transform:translateY(0px);
 
 display:inline-block;
 
-padding:7px 14px;
+padding:8px 15px;
 
 border-radius:999px;
 
-font-size:11px;
+font-size:12px;
 font-weight:700;
 
-margin-bottom:20px;
+margin-bottom:16px;
 
 background:
-rgba(255,255,255,0.35);
-
-color:#555;
-
-border:
-1px solid rgba(255,102,0,0.12);
+rgba(255,255,255,.4);
 
 backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,.7);
 }
 
 /* TITLE */
 
 h1{
 
-font-size:44px;
+font-size:42px;
 font-weight:800;
 
-letter-spacing:-1.8px;
-
-margin-bottom:14px;
+margin-bottom:12px;
 
 background:
 linear-gradient(
 135deg,
-#1e1e1e,
-#444
+#222,
+#555
 );
 
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-/* SUBTITLE */
-
 .subtitle{
 
 font-size:15px;
+
 line-height:1.8;
 
 color:#666;
 
-padding:0 10px;
-
-margin-bottom:38px;
+margin-bottom:28px;
 }
 
-/* BUTTON CARD */
+/* SEARCH */
+
+.search-box{
+
+width:100%;
+
+padding:16px 18px;
+
+border:none;
+outline:none;
+
+border-radius:22px;
+
+font-size:15px;
+
+margin-bottom:18px;
+
+background:
+rgba(255,255,255,.55);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.05);
+}
+
+/* BUTTON */
 
 .button{
 
@@ -342,378 +269,153 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 
-text-decoration:none;
-
-padding:12px 16px;
+padding:16px 18px;
 
 margin-bottom:12px;
 
-border-radius:26px;
+text-decoration:none;
+
+border-radius:24px;
+
+color:#222;
 
 background:
-rgba(255,255,255,0.35);
+rgba(255,255,255,.4);
 
 backdrop-filter:blur(20px);
 
 border:
-1px solid rgba(255,255,255,0.7);
+1px solid rgba(255,255,255,.8);
 
 box-shadow:
-0 8px 25px rgba(0,0,0,0.04);
+0 8px 20px rgba(0,0,0,.05);
 
-transition:.35s ease;
-
-position:relative;
-overflow:hidden;
-
-color:#222;
+transition:.25s;
 }
-
-/* SHINE EFFECT */
-
-.button::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,0.45),
-transparent
-);
-
-transition:.8s;
-}
-
-.button:hover::before{
-left:120%;
-}
-
-/* HOVER */
 
 .button:hover{
 
 transform:
-translateY(-5px)
-scale(1.01);
+translateY(-3px);
 
 box-shadow:
-0 20px 40px rgba(0,0,0,0.10);
+0 15px 35px rgba(0,0,0,.08);
 }
-
-/* LEFT SIDE */
-
-.left{
-
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-/* ICON */
-
-.icon{
-
-width:46px;
-height:46px;
-
-border-radius:18px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:22px;
-
-color:white;
-
-flex-shrink:0;
-}
-
-/* ARROW */
-
-.arrow{
-font-size:24px;
-opacity:.45;
-}
-
-/* CATEGORY COLORS */
-
-.gadget .icon{
-background:
-linear-gradient(
-135deg,
-#3b82f6,
-#2563eb
-);
-}
-
-.home .icon{
-background:
-linear-gradient(
-135deg,
-#10b981,
-#059669
-);
-}
-
-.pria .icon{
-background:
-linear-gradient(
-135deg,
-#6366f1,
-#4338ca
-);
-}
-
-.wanita .icon{
-background:
-linear-gradient(
-135deg,
-#ec4899,
-#db2777
-);
-}
-
-.anak .icon{
-background:
-linear-gradient(
-135deg,
-#06b6d4,
-#0891b2
-);
-}
-
-.hobi .icon{
-background:
-linear-gradient(
-135deg,
-#8b5cf6,
-#7c3aed
-);
-}
-
-.snack .icon{
-background:
-linear-gradient(
-135deg,
-#f59e0b,
-#d97706
-);
-}
-
-/* BUTTON TEXT */
 
 .button span{
-
 font-size:16px;
 font-weight:700;
+}
+
+.arrow{
+font-size:22px;
+opacity:.5;
 }
 
 /* FOOTER */
 
 .footer{
-
 margin-top:20px;
-
 font-size:12px;
-
-color:#999;
-
-opacity:.75;
+color:#888;
 }
 
-/* RESPONSIVE */
+/* ANIMATION */
+
+@keyframes fadePage{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 
 @media(max-width:480px){
 
 .logo{
 width:110px;
 height:110px;
-font-size:48px;
 }
 
 h1{
-font-size:36px;
+font-size:34px;
 }
 
 .subtitle{
 font-size:14px;
-line-height:1.7;
-}
-
-.button{
-padding:16px 18px;
-}
-
-.button span{
-font-size:16px;
-}
-
-.icon{
-width:46px;
-height:46px;
-font-size:22px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- DECORATIVE BACKGROUND -->
-
 <div class="fixed-bg"></div>
-    
+
 <div class="bg-decoration">
 
 <div class="blob blob-top"></div>
-
 <div class="blob blob-bottom"></div>
 
 <div class="circle circle-1"></div>
-
 <div class="circle circle-2"></div>
 
 <div class="dots dots-1"></div>
-
 <div class="dots dots-2"></div>
 
 </div>
 
-<!-- MAIN CONTAINER -->
-
 <div class="container">
-
-<!-- LOGO -->
 
 <div class="logo">
 <img src="logo.png" alt="Temuan Pilihan">
 </div>
 
-<!-- BADGE -->
-
 <div class="badge">
 ✨ Kurasi Produk Pilihan
 </div>
 
-<!-- TITLE -->
-
-<h1>
-Temuan Pilihan
-</h1>
-
-<!-- SUBTITLE -->
+<h1>Temuan Pilihan</h1>
 
 <p class="subtitle">
-Temukan berbagai produk pilihan terbaik.
+Cari nomor atau nama produk yang disebut di video.
 </p>
 
-<!-- BUTTON 1 -->
+<input
+type="text"
+class="search-box"
+placeholder="Cari nomor produk...">
 
-<!-- GADGET -->
-
-<a class="button gadget" href="gadget.html">
-
-<div class="left">
-<div class="icon">📱</div>
-<span>Gadget</span>
-</div>
-
+<a class="button" href="produk-1-100.html">
+<span>📦 Produk 1 - 100</span>
 <div class="arrow">›</div>
-
 </a>
 
-<!-- HOME LIVING -->
-
-<a class="button home" href="home-living.html">
-
-<div class="left">
-<div class="icon">🏠</div>
-<span>Home Living</span>
-</div>
-
+<a class="button" href="produk-101-200.html">
+<span>📦 Produk 101 - 200</span>
 <div class="arrow">›</div>
-
 </a>
 
-<!-- PRIA -->
-
-<a class="button pria" href="pria.html">
-
-<div class="left">
-<div class="icon">👔</div>
-<span>Pria</span>
-</div>
-
+<a class="button" href="produk-201-300.html">
+<span>📦 Produk 201 - 300</span>
 <div class="arrow">›</div>
-
 </a>
 
-<!-- WANITA -->
-
-<a class="button wanita" href="wanita.html">
-
-<div class="left">
-<div class="icon">👗</div>
-<span>Wanita</span>
-</div>
-
+<a class="button" href="produk-301-400.html">
+<span>📦 Produk 301 - 400</span>
 <div class="arrow">›</div>
-
 </a>
 
-<!-- ANAK -->
-
-<a class="button anak" href="anak-anak.html">
-
-<div class="left">
-<div class="icon">🧸</div>
-<span>Anak-anak</span>
-</div>
-
+<a class="button" href="produk-401-500.html">
+<span>📦 Produk 401 - 500</span>
 <div class="arrow">›</div>
-
 </a>
-
-<!-- HOBI -->
-
-<a class="button hobi" href="hobi.html">
-
-<div class="left">
-<div class="icon">🎸</div>
-<span>Hobi</span>
-</div>
-
-<div class="arrow">›</div>
-
-</a>
-
-<!-- SNACK -->
-
-<a class="button snack" href="snack-minuman.html">
-
-<div class="left">
-<div class="icon">🍿</div>
-<span>Snack & Minuman</span>
-</div>
-
-<div class="arrow">›</div>
-
-</a>
-
-<!-- FOOTER -->
 
 <div class="footer">
 © Temuan Pilihan
@@ -721,41 +423,31 @@ Temukan berbagai produk pilihan terbaik.
 
 </div>
 
-<!-- PAGE TRANSITION -->
-
 <script>
 
-/* Perbaiki halaman kosong saat kembali dari browser/mobile */
-window.addEventListener("pageshow", function () {
-
-    document.body.style.opacity = "1";
-    document.body.style.transform = "translateY(0)";
-    document.body.style.transition = "";
-
+window.addEventListener("pageshow", function(){
+document.body.style.opacity="1";
 });
 
-/* Animasi pindah halaman */
-document.querySelectorAll("a").forEach(link => {
+document.querySelectorAll("a").forEach(link=>{
 
-    link.addEventListener("click", function(e){
+link.addEventListener("click",function(e){
 
-        const href = this.getAttribute("href");
+const href=this.getAttribute("href");
 
-        if(href && href !== "#"){
+if(href){
 
-            e.preventDefault();
+e.preventDefault();
 
-            document.body.style.opacity = "0";
-            document.body.style.transform = "translateY(10px)";
-            document.body.style.transition = ".35s ease";
+document.body.style.opacity="0";
 
-            setTimeout(() => {
-                window.location.href = href;
-            }, 120);
+setTimeout(()=>{
+window.location.href=href;
+},120);
 
-        }
+}
 
-    });
+});
 
 });
 
