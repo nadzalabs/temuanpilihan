@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>📦 Produk 1-100 | Temuan Pilihan</title>
+<title>Produk | Temuan Pilihan</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,7 +145,6 @@ margin:auto;
 /* BACK BUTTON */
 
 .back{
-
 display:inline-block;
 
 margin-bottom:16px;
@@ -317,7 +316,15 @@ font-weight:bold;
 color:#ff6b00;
 }
 
-/* FOOTER */
+.highlight{
+border:3px solid #ff6b00 !important;
+
+box-shadow:
+0 0 0 4px rgba(255,107,0,.15),
+0 12px 30px rgba(255,107,0,.18);
+
+transform:scale(1.02);
+}
 
 .footer{
 text-align:center;
@@ -342,7 +349,7 @@ color:#777;
 
 <div class="container">
 
-<a href="index.html" class="back">
+<a href="index.html" class="back" id="backButton">
 ← Kembali
 </a>
 
@@ -352,14 +359,14 @@ color:#777;
 🔍 Temuan Pilihan
 </div>
 
-<h1>📦 Produk 1–100</h1>
+<h1 id="pageTitle">📦 Produk</h1>
 
 <p>
 Cari berdasarkan nomor produk atau nama produk yang kamu lihat di konten kami.
 </p>
 
-<div class="product-count">
-100 Produk Tersedia
+<div class="product-count" id="productCount">
+0 Produk
 </div>
 
 </div>
@@ -370,69 +377,7 @@ id="searchInput"
 placeholder="🔍 Cari nomor atau nama produk..."
 class="search-box">
 
-<!-- PRODUK -->
-
-<a
-id="produk-01"
-href="https://s.shopee.co.id/6ffAq39P5k"
-target="_blank"
-class="product product-item">
-  
-<div class="no">01</div>
-<div class="name">Lampu Tidur Estetik</div>
-<div class="arrow">›</div>
-  
-</a>
-
-<a
-id="produk-02"
-href="https://shopee.co.id/"
-target="_blank"
-class="product product-item">
-  
-<div class="no">02</div>
-<div class="name">Tumbler Premium</div>
-<div class="arrow">›</div>
-  
-</a>
-
-<a
-id="produk-03"
-href="#"
-target="_blank"
-class="product product-item">
-  
-<div class="no">03</div>
-<div class="name">Rak Serbaguna Viral</div>
-<div class="arrow">›</div>
-  
-</a>
-
-<a
-id="produk-04"
-href="#"
-target="_blank"
-class="product product-item">
-  
-<div class="no">04</div>
-<div class="name">Pengharum Mobil</div>
-<div class="arrow">›</div>
-  
-</a>
-
-<a
-id="produk-05"
-href="#"
-target="_blank"
-class="product product-item">
-  
-<div class="no">05</div>
-<div class="name">Organizer Multifungsi</div>
-<div class="arrow">›</div>
-  
-</a>
-
-<!-- TAMBAHKAN PRODUK 06-100 DI SINI -->
+<div id="productList"></div>
 
 <div class="footer">
 © Temuan Pilihan
@@ -440,64 +385,160 @@ class="product product-item">
 
 </div>
 
+<script src="products.js"></script>
+
 <script>
-
-const searchInput =
-document.getElementById("searchInput");
-
-searchInput.addEventListener("keyup", function(){
-
-let keyword =
-this.value.toLowerCase();
-
-let products =
-document.querySelectorAll(".product-item");
-
-products.forEach(function(product){
-
-let text =
-product.innerText.toLowerCase();
-
-if(text.includes(keyword)){
-product.style.display = "flex";
-}else{
-product.style.display = "none";
-}
-
-});
-
-});
 
 const params =
 new URLSearchParams(window.location.search);
 
-let target =
+const range =
+params.get("range") || "1-100";
+
+const targetProduct =
 params.get("produk");
 
-if(target){
+const [start,end] =
+range.split("-").map(Number);
 
-target =
-target.padStart(2,"0");
+const pageTitle =
+document.getElementById("pageTitle");
 
-const element =
-document.getElementById("produk-" + target);
+const productCount =
+document.getElementById("productCount");
 
-if(element){
+const productList =
+document.getElementById("productList");
 
-element.scrollIntoView({
+const searchInput =
+document.getElementById("searchInput");
+
+pageTitle.textContent =
+`📦 Produk ${start} - ${end}`;
+
+const rangeProducts =
+PRODUCTS.filter(product=>{
+
+const number =
+parseInt(product.number);
+
+return number >= start && number <= end;
+
+});
+
+productCount.textContent =
+`${rangeProducts.length} Produk Tersedia`;
+
+function renderProducts(products){
+
+productList.innerHTML="";
+
+products.forEach(product=>{
+
+const card =
+document.createElement("a");
+
+card.href =
+product.link;
+
+card.target =
+"_blank";
+
+card.className =
+"product product-item";
+
+card.id =
+`produk-${product.number}`;
+
+card.innerHTML = `
+<div class="no">${product.number}</div>
+<div class="name">${product.name}</div>
+<div class="arrow">›</div>
+`;
+
+productList.appendChild(card);
+
+});
+
+highlightTarget();
+
+}
+
+function highlightTarget(){
+
+if(!targetProduct) return;
+
+const target =
+document.getElementById(
+`produk-${targetProduct}`
+);
+
+if(!target) return;
+
+setTimeout(()=>{
+
+target.classList.add("highlight");
+
+target.scrollIntoView({
 behavior:"smooth",
 block:"center"
 });
 
-element.style.border =
-"3px solid #ff6b00";
-
-element.style.transform =
-"scale(1.02)";
+},300);
 
 }
 
+renderProducts(rangeProducts);
+
+searchInput.addEventListener("input",()=>{
+
+const keyword =
+searchInput.value
+.trim()
+.toLowerCase();
+
+if(!keyword){
+
+renderProducts(rangeProducts);
+return;
+
 }
+
+const filtered =
+rangeProducts.filter(product=>
+
+product.number
+.toLowerCase()
+.includes(keyword)
+
+||
+
+product.name
+.toLowerCase()
+.includes(keyword)
+
+);
+
+renderProducts(filtered);
+
+});
+
+document
+.getElementById("backButton")
+.addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+
+window.location.href =
+"index.html";
+
+},120);
+
+});
 
 </script>
 
